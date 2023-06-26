@@ -1,0 +1,53 @@
+# 1. Quais são as entidades necessárias?;
+ Resposta: As entidades necessária para criar e fazer as analises são : Empresas, Tecnologia_Empresa, Tecnologia, Colaboradores.
+2. Quais são os principais campos e seus respectivos tipos?;
+ Resposta:
+# CAMPO( Empresas),Respectivos tipos de dados sobre a empresa: ( 
+    ID INT PRIMARY KEY,
+	NOME VARCHAR(200),
+	ENDEREÇO VARCHAR(200),
+	CNPJ CHAR (12));
+# CAMPO(Tecnologia), Respectivos tipos de dados sobre a tecnologia :(
+    ID INT PRIMARY KEY,
+	NOME VARCHAR (250),
+	AREA VARCHAR(100));
+# CAMPO: ( Empresas_Tecnologia), Seus respectivos dados sao: (
+    ID_EMPRESA INT,
+	ID_TECNOLOGIA INT,
+	FOREIGN KEY (ID_EMPRESA) REFERENCES EMPRESAS(ID),
+	FOREIGN KEY (ID_TECNOLOGIA)REFERENCES TECNOLOGIAS(ID));
+# CAMPO (Colaboradores), Seus respectivos tipos de dados relacionados: (
+    ID INT PRIMARY KEY,
+	NOME VARCHAR(200),
+	CARGO VARCHAR(200),
+	ID_EMPRESA INT,
+	FOREIGN KEY (ID_EMPRESA)REFERENCES EMPRESAS(ID)
+    );
+3. Como essas entidades estão relacionadas?;
+ Resposta:
+* A Tabela " Empresas ", tem uma relaçao 1,N com a tabela "Colaboradores", onde uma empresa pode ter varios colaboradores.
+* A Tabela "Empresas", tem uma relaçao de N,N com a Tabela "Tecnologias" atraves da tabela "Empresas_tecnologia", isso permite que uma empresa utilize varias tecnologias, e uma tecnologia possa ser utilizada por varias empresas.
+4. Simule 2 registros para cada entidade.
+---
+Tabela "Empresas":
+ID	Nome	    Endereço	            CNPJ
+ 1	Ifood	    Endereço A	        123.456.789.123
+ 2	Resilia 	Endereço B	        987.654.321.789
+---
+Tabela "Tecnologias":
+---
+(ID)	(Nome)	        (Área)
+ 1	   Android	        Webdev
+ 2	   PgAdmin4	        Dados
+---
+Tabela "Empresas_Tecnologias":
+(ID_Empresa)	(ID_Tecnologia)
+ 1	                1
+ 1	                2
+ 2	                2
+
+Tabela "Colaboradores":
+(ID)	    (Nome)	           ( Carg)       (ID_Empresa)
+ 1	   Colaborador A	   Desenvolvedor	    1
+ 2	   Colaborador B	   AnalistadDados       2
+
