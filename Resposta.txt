@@ -48,6 +48,6 @@ Tabela "Empresas_Tecnologias":
 
 Tabela "Colaboradores":
 (ID)	    (Nome)	           ( Carg)       (ID_Empresa)
- 1	   Colaborador A	   Desenvolvedor	    1
- 2	   Colaborador B	   AnalistadDados       2
+ 1	   Colaborador Ana	   Desenvolvedor	    1
+ 2	   Colaborador Joao	   AnalistadDados       2
 
